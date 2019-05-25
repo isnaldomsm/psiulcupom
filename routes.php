@@ -6,3 +6,4 @@ Route::set('Login', 'Login', 'login');
 Route::set('Logout', 'Login', 'logout');
 
 Route::set('Perfil', 'Usuario', 'perfil');
+Route::set('Admin', 'Admin', 'admin');

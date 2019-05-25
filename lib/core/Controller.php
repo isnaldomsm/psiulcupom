@@ -2,7 +2,7 @@
 
 /**
  * Classe Controller
- * 
+ *
  * @author Miguel
  * @package \lib\core
  */
@@ -17,14 +17,14 @@ class Controller {
 
     /**
      *
-     * @var Html 
+     * @var Html
      */
     public $Html;
 
     /**
      * Define o arquivo de internacionalização
      * Os arquivos se encontram na pasta \Locale
-     * 
+     *
      * @param String $lang
      */
     protected function setlocale($lang) {
@@ -38,7 +38,7 @@ class Controller {
     /**
      * Define o nome da pasta que contem o template a ser usado
      * Os templates se encontram na pasta \template
-     * 
+     *
      * @param String $template
      */
     protected function setTemplate($template) {
@@ -48,7 +48,7 @@ class Controller {
     /**
      * Define o título da página
      * <title>$title</title>
-     * 
+     *
      * @param String $title
      */
     protected function setTitle($title) {
@@ -59,7 +59,7 @@ class Controller {
      * Define uma variável e atribui seu valor para ser utilizada na View (visão)
      * O primeiro parãmetro é o nome da variável que será criada na View
      * O segundo parãmetro é o seu valor
-     *      * 
+     *      *
      * @param String $varname
      * @param String $value
      */
@@ -74,13 +74,13 @@ class Controller {
     /**
      * Redireciona para uma´página do sistema (Controller e seu método).
      * (opcional) Utilize um array associativo para enviar parâmetros adicionais via GET.
-     * 
+     *
      * Exemplo 1: Para se construir a url /Produto/all/?categoria=Foo&tipo=Bar
      * $this->go('Produto','all', array('categoria'=>'Foo', 'tipo'=>'Bar') )
-     * 
+     *
      * Exemplo 2: Para se construir uma URL para /Index/index
      * $this->go('Index','index' )
-     *      
+     *
      * @param String $controller
      * @param String $action
      * @param array $urlParams
@@ -143,7 +143,7 @@ class Controller {
 
     /**
      * Redireciona para uma URL
-     *       
+     *
      * @param String $url
      */
     protected function goUrl($url) {
@@ -155,10 +155,10 @@ class Controller {
     /**
      * <b>Renderiza uma view</b>.
      * Este método é acionado automaticamente caso não seja explicitamente definido no controller.
-     * 
+     *
      * Exemplo: Para renderizar a view <b>\view\Foo\bar.php</b> utilize:
      * $this->render('Foo/bar');
-     * 
+     *
      * @param String $_view
      */
     public function render($_view = NULL) {
@@ -215,23 +215,23 @@ class Controller {
 
     /**
      * Inclui as Tags HTML, os arquivos CSS e JS necessários para o funcionamento adequado do lazyphp.
-     * 
-     * Esta função deve ser chamada no arquivo de template dentro da tag <head>.  
+     *
+     * Esta função deve ser chamada no arquivo de template dentro da tag <head>.
      */
     public function getHeaders() {
         echo '<title>' . $this->_title . "</title>\n";
-        echo '<link href="' . SITE_PATH . '/lib/frontend/core.css" rel="stylesheet">' . "\n";
-        echo '<link href="' . SITE_PATH . '/lib/frontend/bootstrap.min.css" rel="stylesheet">' . "\n";
-        echo '<link href="' . SITE_PATH . '/lib/frontend/font-awesome/css/font-awesome.min.css" rel="stylesheet">' . "\n";
-        echo '<script src="' . SITE_PATH . '/lib/js/jquery.js"></script>' . "\n";
-        echo '<script src="' . SITE_PATH . '/lib/js/bootstrap.min.js"></script>' . "\n";
-        echo '<script src="' . SITE_PATH . '/lib/js/misc.js"></script>' . "\n";
+        echo '<link href="/lib/frontend/core.css" rel="stylesheet">' . "\n";
+        echo '<link href="/lib/frontend/bootstrap.min.css" rel="stylesheet">' . "\n";
+        echo '<link href="/lib/frontend/font-awesome/css/font-awesome.min.css" rel="stylesheet">' . "\n";
+        echo '<script src="/lib/js/jquery.js"></script>' . "\n";
+        echo '<script src="/lib/js/bootstrap.min.js"></script>' . "\n";
+        echo '<script src="/lib/js/misc.js"></script>' . "\n";
     }
 
     /**
      * Processa as visões e demais saídas do sistema;
-     * 
-     * Esta função deve ser chamada no arquivo de template dentro da tag <body> 
+     *
+     * Esta função deve ser chamada no arquivo de template dentro da tag <body>
      * e no container preparado para receber o conteúdo.
      */
     public function getContents() {
@@ -252,16 +252,16 @@ class Controller {
     /**
      * Execulta uma consulta direta ao baco de dados, sem o uso de Models.
      * Evite o uso abusivo desta função;
-     * 
+     *
      * Exemplo 1: consulta personalizada que <b>retorna um array de objetos standard:</b>
      * $resultados = $this->query('SELECT campo1, campo2 FROM foo LEFT JOIN bar ON foo.id = bar.id');
-     * 
+     *
      * Exemplo 2: consulta personalizada que <b>retorna um array de objetos standard:</b>
      * $resultados = $this->query('SHOW TABLES');
-     * 
+     *
      * Exemplo 3: apaga dados de uma tabela <b>retorna true ou false</b>
      * $resultados = $this->query('DELETE FROM foo WHERE id = 2');
-     * 
+     *
      * @param String $sqlQuery
      * @param String $className - [opcional] nome de uma classe existente para Casting dos objetos do resultado
      * @return boolean ou array de objetos
@@ -279,7 +279,7 @@ class Controller {
 
     /**
      * Retorna a url atual.
-     * 
+     *
      * @return string URL
      */
     public function getCurrentURL() {
