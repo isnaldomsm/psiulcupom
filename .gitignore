@@ -4,4 +4,4 @@
 id_rsa
 .DS_Store
 .git
-.sftp-config.json
+sftp-config.json
